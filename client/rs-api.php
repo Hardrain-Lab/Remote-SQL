@@ -11,6 +11,7 @@
 /** 载入配置文件 */
 require_once( 'rs-include/rs-config.php' );
 
-
+/** 载入 */
+require_once( 'rs-include/rs-common.php' );
 
 ?>

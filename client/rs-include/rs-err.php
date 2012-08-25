@@ -40,9 +40,10 @@ class RSError
 	}
 	
 	////////////////////////////////////////////////////
+	const CONNECTION_PASSWD_ERROR = 0x020000;
 	static function get_info_by_code($code, $nani)
 	{
-		$map = array();
+		$map = array(CONNECTION_PASSWD_ERROR=>array('name'=>'连接密码错误', 'msg'=>'连接密码错误'));
 		return $map[$code][$nani];
 	}
 }
@@ -68,7 +69,7 @@ class RSErrors
 		return $e;
 	}
 	
-	public function newe($e)
+	public function pushe($e)
 	{
 		$this->errs->push($e);
 	}
@@ -81,7 +82,7 @@ function rs_new_error($ecode, $ename='', $emsg='')
 	global $__rs;
 	
 	$e = new RSError($ecode, $ename, $emsg);
-	$__rs['errs']->newe($e);
+	$__rs['errs']->pushe($e);
 }
 
 function rs_get_last_error()
