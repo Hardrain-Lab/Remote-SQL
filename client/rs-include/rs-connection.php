@@ -40,6 +40,9 @@ class RSLink
 	
 	function connect()
 	{
+		if( $this->connected == 1 )
+			return;
+		
 		$url = $cmd_url . '?action=connect&pwd=' . (urlencode($this->pwd));
 		$response = file_get_contents($url);
 		$r = explode('#', $response);
@@ -58,8 +61,21 @@ class RSLink
 	
 	function disconnect()
 	{
-		$url = $cmd_url . '?action=connect&pwd='.(urlencode($this->pwd)).'&token='.($this->token);
-		// dt,
+		if( $this->connected == 0 )
+			return;
+		
+		$url = $cmd_url . '?action=disconnect&pwd='.(urlencode($this->pwd)).'&token='.($this->token);
+		$response = file_get_contents($url);
+		
+		if( $response == '1' )
+		{
+			$this->connected = 0;
+		}
+		else
+		{
+			$r = explode('#', $response);
+			rs::new_error( (int)($r[1]) );
+		}
 	}
 	
 	
