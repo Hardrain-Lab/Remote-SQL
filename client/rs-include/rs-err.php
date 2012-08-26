@@ -75,21 +75,6 @@ class RSErrors
 	}
 }
 
-$__rs['errs'] = new RSErrors();
 
-function rs_new_error($ecode, $ename='', $emsg='')
-{
-	global $__rs;
-	
-	$e = new RSError($ecode, $ename, $emsg);
-	$__rs['errs']->pushe($e);
-}
-
-function rs_get_last_error()
-{
-	global $__rs;
-	
-	return $__rs['errs']->get_last_error();
-}
 
 ?>

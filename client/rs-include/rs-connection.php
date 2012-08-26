@@ -46,7 +46,7 @@ class RSLink
 		
 		if($r[0] == '0')
 		{
-			rs_new_error((int)($r[1]));
+			rs::new_error((int)($r[1]));
 		}
 		else
 		{
@@ -55,12 +55,13 @@ class RSLink
 		}
 	}
 	
-	/*
-	function close_connection()
+	
+	function disconnect()
 	{
 		$url = $cmd_url . '?action=connect&pwd='.(urlencode($this->pwd)).'&token='.($this->token);
+		// dt,
 	}
-	*/
+	
 	
 	// ----
 	static $count = 0;
