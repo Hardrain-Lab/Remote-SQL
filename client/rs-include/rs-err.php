@@ -7,7 +7,6 @@
 
 require_once( 'class/stack.class.php' );
 
-global $__rs;
 
 class RSError
 {

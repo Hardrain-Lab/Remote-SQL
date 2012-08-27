@@ -7,7 +7,6 @@
  * Abreto<m@abreto.net>
  **/
 
-global $__rs;
 
 require_once('rs-common.php');
 
@@ -78,6 +77,10 @@ class RSLink
 		}
 	}
 	
+	function is_connected()
+	{
+		return ($this->connected == 1);
+	}
 	
 	// ----
 	static $count = 0;

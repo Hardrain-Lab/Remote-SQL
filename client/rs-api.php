@@ -63,6 +63,17 @@ class rs
 	 {
 		 $link->disconnect();
 	 }
+	 
+	 /**
+	  * 判断是否连接成功
+	  * 
+	  * @参数: $link 连接对象
+	  * @返回: 1:成功, 0:失败
+	  **/
+	  static function is_connected($link)
+	  {
+		  return $link->is_connected();
+	  }
 }
 
 
